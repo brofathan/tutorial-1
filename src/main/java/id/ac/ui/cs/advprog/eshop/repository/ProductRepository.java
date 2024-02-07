@@ -33,6 +33,30 @@ public class ProductRepository {
         return "deleted";
     }
 
+    public String edit(Product product){
+        int count = 0;
+
+        for (Product p: productData) {
+            if(p.getProductId().equals(product.getProductId())){
+                break;
+            }
+            count++;
+        }
+
+        productData.set(count, product);
+
+        return "edited";
+    }
+
+    public Product findById(String id) {
+        return productData.stream()
+            .filter(product -> product.getProductId().equals(id))
+            .findFirst()
+            .orElseThrow(() ->
+                    new IllegalArgumentException("Invalid product Id:" + id)
+            );
+    }
+
     public Iterator<Product> findAll(){
         return productData.iterator();
     }

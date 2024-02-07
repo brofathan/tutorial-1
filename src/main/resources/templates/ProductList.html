@@ -32,6 +32,9 @@
               <form th:action="@{'/product/delete/' + ${product.productId}}" method="post">
                 <button type="submit">Delete Product</button>
               </form>
+              <form th:action="@{'/product/edit/' + ${product.productId}}" method="get">
+                <button type="submit">Edit Product</button>
+              </form>
             </td>
           </tr>
         </tbody>
