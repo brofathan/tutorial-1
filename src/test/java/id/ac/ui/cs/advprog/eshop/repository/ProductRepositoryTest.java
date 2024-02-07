@@ -63,4 +63,57 @@ class ProductRepositoryTest{
         assertEquals(product2.getProductId(), savedProduct.getProductId());
         assertFalse(productIterator.hasNext());
     }
+
+    @Test
+    void testDeleteProduct(){
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af61af63bd6");
+        product.setProductName("Sampo Cap Bambang");
+        product.setProductQuantity(50);
+        productRepository.create(product);
+
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertTrue(productIterator.hasNext());
+        productRepository.delete(product.getProductId());
+
+        Iterator<Product> productIterator2 = productRepository.findAll();
+        assertFalse(productIterator2.hasNext());
+    }
+
+    @Test
+    void testEditProduct(){
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af61af63bd6");
+        product.setProductName("Sampo Cap Bambang");
+        product.setProductQuantity(100);
+
+        productRepository.create(product);
+
+        assertEquals(product.getProductName(), "Sampo Cap Bambang");
+        product.setProductName("Sampo Cap Ucup");
+        productRepository.edit(product);
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertTrue(productIterator.hasNext());
+        assertEquals("Sampo Cap Ucup", product.getProductName());
+    }
+
+    @Test
+    void testEditProductBeforeCreateProduct(){
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af61af63bd6");
+        product.setProductName("Sampo Cap Bambang");
+        product.setProductQuantity(100);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> productRepository.edit(product));
+    }
+
+    @Test
+    void testDeleteProductBeforeCreateProduct(){
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af61af63bd6");
+        product.setProductName("Sampo Cap Bambang");
+        product.setProductQuantity(100);
+
+        assertEquals(productRepository.delete(product.getProductId()), "deleted");
+    }
 }
