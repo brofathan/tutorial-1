@@ -85,7 +85,7 @@ class ProductRepositoryTest{
         Product product = new Product();
         product.setProductId("eb558e9f-1c39-460e-8860-71af61af63bd6");
         product.setProductName("Sampo Cap Bambang");
-        product.setProductQuantity(100);
+        product.setProductQuantity(50);
 
         productRepository.create(product);
 
@@ -102,7 +102,7 @@ class ProductRepositoryTest{
         Product product = new Product();
         product.setProductId("eb558e9f-1c39-460e-8860-71af61af63bd6");
         product.setProductName("Sampo Cap Bambang");
-        product.setProductQuantity(100);
+        product.setProductQuantity(50);
 
         assertThrows(IndexOutOfBoundsException.class, () -> productRepository.edit(product));
     }
@@ -112,7 +112,7 @@ class ProductRepositoryTest{
         Product product = new Product();
         product.setProductId("eb558e9f-1c39-460e-8860-71af61af63bd6");
         product.setProductName("Sampo Cap Bambang");
-        product.setProductQuantity(100);
+        product.setProductQuantity(50);
 
         assertEquals(productRepository.delete(product.getProductId()), "deleted");
     }
