@@ -6,5 +6,6 @@ import id.ac.ui.cs.advprog.eshop.model.Product;
 
 public interface ProductService {
     public Product create(Product product);
+    public String delete(String id);
     public List<Product> findAll();
 }
