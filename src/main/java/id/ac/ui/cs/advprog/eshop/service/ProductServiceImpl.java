@@ -46,5 +46,9 @@ public class ProductServiceImpl implements ProductService {
         producIterator.forEachRemaining(allProduct::add);
         return allProduct;
     }
-    
+
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
 }
