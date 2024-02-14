@@ -18,6 +18,8 @@ Pada exercise 1 kali ini saya mengimplementasikan clean code pada kode saya. Pra
 
 # Tutorial-2
 
+deployment: https://conventional-carola-eshop-tutorial-1.koyeb.app/
+
 # Refleksi
 
 1. Saat saya melakukan tutorial kali ini saya menemukan beberapa kekurangan pada kode saya yaitu:
