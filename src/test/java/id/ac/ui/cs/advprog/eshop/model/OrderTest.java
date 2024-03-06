@@ -50,14 +50,14 @@ public class OrderTest {
         assertEquals("dbd4aff4-9a7f-4603-92c2-eaf529271cc9", order.getId());
         assertEquals(1708560000L, order.getOrderTime());
         assertEquals("Safira Sudrajat", order.getAuthor());
-        assertEquals(OrderStatus.WAITING_PAYMENT.getValue(), order.getStatus());
+        assertEquals("WAITING_PAYMENT", order.getStatus());
     }
 
     @Test
     void testCreateOrderSuccessStatus() {
         Order order = new Order("2ce7fead-82fb-4ff9-9af6-d2c604a030e7",
                 this.products, 1708560000L, "Safira Sudrajat", OrderStatus.SUCCESS.getValue());
-        assertEquals(OrderStatus.SUCCESS.getValue(), order.getStatus());
+        assertEquals("SUCCESS", order.getStatus());
     }
 
     @Test
@@ -74,7 +74,7 @@ public class OrderTest {
         Order order = new Order("2ce7fead-82fb-4ff9-9af6-d2c604a030e7",
                 this.products, 1708560000L, "Safira Sudrajat");
         order.setStatus(OrderStatus.CANCELED.getValue());
-        assertEquals(OrderStatus.CANCELED.getValue(), order.getStatus());
+        assertEquals("CANCELLED", order.getStatus());
     }
 
     @Test
