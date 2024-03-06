@@ -14,12 +14,12 @@ public class OrderTest {
     void setup() {
         this.products = new ArrayList<>();
         Product product1 = new Product();
-        product1.setProductId("b2ae25a2-efc1-403d-af31-fec36ae37f2e");
+        product1.setProductId("2ce7fead-82fb-4ff9-9af6-d2c604a030e7");
         product1.setProductName("Sampo Cap Bambang");
         product1.setProductQuantity(2);
 
         Product product2 = new Product();
-        product2.setProductId("b9b1dfe1-ddfd-471d-a3f1-0b486f0da294");
+        product2.setProductId("2ce7fead-82fb-4ff9-9af6-d2c604a030e7");
         product2.setProductName("Sabun Cap Usep");
         product2.setProductQuantity(1);
 
@@ -33,7 +33,7 @@ public class OrderTest {
 
         assertThrows(IllegalArgumentException.class, () -> {
             @SuppressWarnings("unused")
-            Order order = new Order("22831cd9-c685-4138-b8a1-6443697fbcc9",
+            Order order = new Order("2ce7fead-82fb-4ff9-9af6-d2c604a030e7",
                     this.products, 1708560000L, "Safira Sudrajat");
         });
     }
@@ -47,7 +47,7 @@ public class OrderTest {
         assertEquals(2, order.getProducts().size());
         assertEquals("Sampo Cap Bambang", order.getProducts().get(0).getProductName());
         assertEquals("Sabun Cap Usep", order.getProducts().get(1).getProductName());
-        assertEquals("dbd4aff4-9a7f-4603-92c2-eaf529271cc9", order.getId());
+        assertEquals("2ce7fead-82fb-4ff9-9af6-d2c604a030e7", order.getId());
         assertEquals(1708560000L, order.getOrderTime());
         assertEquals("Safira Sudrajat", order.getAuthor());
         assertEquals("WAITING_PAYMENT", order.getStatus());
