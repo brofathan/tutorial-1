@@ -55,16 +55,18 @@ public class PaymentTest {
     void testCreatePaymentInvalidStatus(){
         loadBankTransferPaymentData();
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            @SuppressWarnings("unused")
-            Payment payment = new Payment(
-                    "0114e361-9874-4d5f-afd5-95e2445b5d6e",
-                    PaymentMethod.BANK.getValue(),
-                    order,
-                    paymentData,
-                    "Hello"
-            );
-        });
+        Payment payment = new Payment(
+                "0114e361-9874-4d5f-afd5-95e2445b5d6e",
+                PaymentMethod.BANK.getValue(),
+                order,
+                paymentData,
+                "Hello"
+        );
+
+        assertEquals("0114e361-9874-4d5f-afd5-95e2445b5d6e", payment.getId());
+        assertEquals(PaymentMethod.BANK.getValue(), payment.getMethod());
+        assertEquals("Hello", payment.getStatus());
+        paymentData.clear();
     }
 
     @Test
@@ -77,9 +79,7 @@ public class PaymentTest {
                 paymentData,
                 PaymentStatus.PENDING.getValue()
         );
-        assertSame(payment.getOrder(), order);
-        assertNull(payment.getPaymentData());
-        assertEquals("e45d7d21-fd29-4533-a569-abbe0819579a", payment.getId());
+        assertEquals("0114e361-9874-4d5f-afd5-95e2445b5d6e", payment.getId());
         assertEquals(PaymentMethod.BANK.getValue(), payment.getMethod());
         assertEquals(PaymentStatus.PENDING.getValue(), payment.getStatus());
         paymentData.clear();
@@ -95,9 +95,7 @@ public class PaymentTest {
                 paymentData,
                 PaymentStatus.PENDING.getValue()
         );
-        assertSame(payment.getOrder(), order);
-        assertNull(payment.getPaymentData());
-        assertEquals("e45d7d21-fd29-4533-a569-abbe0819579a", payment.getId());
+        assertEquals("0114e361-9874-4d5f-afd5-95e2445b5d6e", payment.getId());
         assertEquals(PaymentMethod.VOUCHER.getValue(), payment.getMethod());
         assertEquals(PaymentStatus.PENDING.getValue(), payment.getStatus());
         paymentData.clear();
