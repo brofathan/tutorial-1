@@ -66,3 +66,10 @@ Advantages menggunakan SOLID principles:
 Disadvantages tidak menggunakan SOLID principles:
 - Kode akan sulit dikelola dalam proses pengembangan.
 - Kode akan sulit dibaca oleh orang lain juga diri sendiri.
+
+<hr>
+<hr>
+
+# Tutorial 4 Reflection
+
+1. TDD flows sangat berguna bagi kode saya. Metode ini membuat konsep kerangka kode saya jadi lebih baik
